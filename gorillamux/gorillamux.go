@@ -17,7 +17,7 @@ func (gm gorillamuxRouter) Handler() http.Handler {
 }
 
 func (gm gorillamuxRouter) Handle(protocol, route string, handler routing.HandlerFunc) {
-	m := map[string]interface{}
+	m := make(map[string]interface{})
 	wrappedHandler := func(w http.ResponseWriter, r *http.Request) {
 		handler(w, r, mux.Vars(r), m)
 	}
